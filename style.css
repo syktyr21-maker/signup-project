@@ -35,3 +35,7 @@ button, .btn {
   display: inline-block;
 }
 a { color: #555; text-decoration: none; }
+
+body {
+  background-color: red;
+}
