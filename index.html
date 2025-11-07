@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>ثبت‌نام</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg">
+  <div class="center-box">
+    <h1>فرم ثبت‌نام</h1>
+    <form>
+      <input type="email" id="email" placeholder="ایمیل" required>
+      <input type="password" id="password" placeholder="رمز عبور" required>
+      <button type="submit">ثبت‌نام</button>
+    </form>
+  </div>
+
+  <script>
+    document.querySelector('form').addEventListener('submit', e => {
+      e.preventDefault();
+      const email = document.querySelector('#email').value;
+      const password = document.querySelector('#password').value;
+
+      fetch('http://localhost:3000/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      })
+      .then(res => res.text())
+      .then(msg => alert(msg));
+    });
+  </script>
+</body>
+</html>
